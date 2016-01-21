@@ -1,0 +1,1594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Bill Leeper (QinetiQ North America) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Developed by :		SAIC
+		Version History:	Version 1.0 - 01-Aug-2007 by Erin Le (cloned from BRS_Notification_V1.3.xsd)
+										  26-Oct-2007 adding PhenotypeDescription element required for Applicant ONLY
+										  (under PhenotypicDesignationDataType)
+							Version 2.0 - 09-Sep-2009 by Bill Leeper.  Adding items for CQ 218/219
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_Permit
+		Description : 	Applications For Permit or Courtesy Permit
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="Submission" type="SubmissionType"/>
+	<xsd:complexType name="SubmissionType">
+		<xsd:sequence>
+			<xsd:element name="Applicant" type="ApplicantDataType"/>
+			<xsd:element name="Application" type="ApplicationDataType" maxOccurs="unbounded">
+				<xsd:key name="UniqueLocationUniqueId">
+					<xsd:selector xpath=".//ReleaseLocation"/>
+					<xsd:field xpath="LocationUniqueID"/>
+				</xsd:key>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_Permit_Details
+		Description : 	Introduction of Genetically Engineered Plants and Microorganisms
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="ApplicationDataType">
+		<xsd:sequence>
+			<xsd:element name="IntroductionType" type="IntroductionType"/>
+			<xsd:element name="AppCatType" type="AppCatType"/>
+			<xsd:element name="AmendmentJustification">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PrevPermitNum" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ApplicationCBIFlag" type="YesNoIndicatorDataType"/>
+			<xsd:element name="CBIJustificationStatement" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArticlePurpose" type="ArticlePurposeType"/>
+			<xsd:element name="CourtesyPermitFlag" type="YesNoIndicatorDataType"/>
+			<xsd:element name="CourtesyJustification" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MeansOfMovement" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AdditionalInformation" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="VarianceFlag" type="YesNoIndicatorDataType"/>
+			<xsd:element name="VarianceNumber" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="VarianceDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Article" type="ArticleDataType"/>
+			<xsd:element name="ArticleSupplier" type="ArticleSupplierDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="PhenotypicDesignation" type="PhenotypicDesignationDataType" maxOccurs="unbounded"/>
+			<xsd:element name="ImportationDetails" type="ImportationDetails" minOccurs="0"/>
+			<xsd:element name="InterstateDetails" type="InterstateDetails" minOccurs="0"/>
+			<xsd:element name="ReleaseDetails" type="ReleaseDetails" minOccurs="0"/>
+			<xsd:element name="DesignProtocolDetails" type="DesignProtocolDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_LOCATION
+		Description : 	
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="ImportationDetails">
+		<xsd:sequence>
+			<xsd:element name="ImportationPointofOrigin" type="ImportationPOOLocationDataType"/>
+			<xsd:element name="ImportationDestination" type="DestinationLocationDataType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InterstateDetails">
+		<xsd:sequence>
+			<xsd:element name="InterstateMovementOriginationPoint" type="ExtLocationDataType" maxOccurs="unbounded"/>
+			<xsd:element name="InterstateMovementDestination" type="DestinationLocationDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ReleaseDetails">
+		<xsd:sequence>
+			<xsd:element name="ReleaseLocation" type="ReleaseLocationDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImportationPOOLocationDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ImpLocationComponentsDataType">
+				<xsd:sequence>
+					<xsd:element name="LocationCountry">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="1"/>
+								<xsd:maxLength value="50"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="Contact" type="ContactPersonDataType" minOccurs="0" maxOccurs="3"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ExtLocationDataType">
+		<xsd:complexContent>
+			<xsd:extension base="LocationComponentsDataType">
+				<xsd:sequence>
+					<xsd:element name="LocationTownshipIsland" minOccurs="0">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="0"/>
+								<xsd:maxLength value="255"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="LocationState" type="RequiredStateDataType"/>
+					<xsd:element name="Contact" type="ContactPersonDataType" minOccurs="0" maxOccurs="3"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- Release Location -->
+	<xsd:complexType name="ReleaseLocationDataType">
+		<xsd:complexContent>
+			<xsd:extension base="LocationComponentsDataType">
+				<xsd:sequence>
+					<xsd:element name="LocationTownshipIsland" minOccurs="0">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="0"/>
+								<xsd:maxLength value="255"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="LocationState" type="RequiredStateDataType"/>
+					<xsd:element name="LocationUniqueID">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="1"/>
+								<xsd:maxLength value="52"/>
+								<xsd:pattern value="[a-zA-Z0-9'\-']{1,50}|\[[a-zA-Z0-9'\-']{1,50}\]"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="GPSCoordinates">
+						<xsd:complexType>
+							<xsd:sequence maxOccurs="6">
+								<xsd:element name="GPSLatitude">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:float">
+											<xsd:minInclusive value="-90.0"/>
+											<xsd:maxInclusive value="90.0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="GPSLongitude">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:float">
+											<xsd:minInclusive value="-180"/>
+											<xsd:maxInclusive value="180"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+							</xsd:sequence>
+							<xsd:attribute name="CBI" type="xsd:boolean" use="required"/>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="ReleaseSiteHistory">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="1"/>
+								<xsd:maxLength value="1000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="CriticalHabitatFlag" type="YesNoIndicatorDataType"/>
+					<xsd:element name="CriticalHabitatSpecies" minOccurs="0">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="0"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="CriticalHabitatEffectAnalysis" minOccurs="0">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="0"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="IntroductionRelease" type="IntroductionReleaseDataType"/>
+					<xsd:element name="Contact" type="ContactPersonDataType" minOccurs="0" maxOccurs="3"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="DestinationLocationDataType">
+		<xsd:complexContent>
+			<xsd:extension base="LocationComponentsDataType">
+				<xsd:sequence>
+					<xsd:element name="LocationTownshipIsland" minOccurs="0">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:minLength value="0"/>
+								<xsd:maxLength value="255"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="LocationState" type="RequiredStateDataType"/>
+					<xsd:element name="IntroductionMovement" type="IntroductionImportDataType"/>
+					<xsd:element name="Contact" type="ContactPersonDataType" minOccurs="0" maxOccurs="3"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- START: Applicant XML definition                                                       -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_APPLICANT 
+		Description : 	Applicant Information. The person responsible for the information provided in the notification.  Applicants must have a U.S. address.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="ApplicantDataType">
+		<xsd:sequence>
+			<xsd:element name="AppTitle" type="TitleType" minOccurs="0"/>
+			<xsd:element name="AppFirstName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppMiddleName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppLastName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OrganizationName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OrganizationUniqueID" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Position" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppContDetails" type="AppContDetailDataType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_APPLICANT
+		Description : 	Address and Phone Details
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="AppContDetailDataType">
+		<xsd:sequence>
+			<xsd:element name="AppAddressLine1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppAddressLine2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppAddressLine3" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppAddressLine4" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppCountyProvince" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppCity">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppTownshipIsland" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppState" type="RequiredStateDataType"/>
+			<xsd:element name="AppPostalCode">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppEmail1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppEmail2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppDayTelephone">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppDayTelephoneExtension" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppFaxTelephone" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppAlternateTelephone" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AppAlternateTelephoneExtension" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Applicant XML definition                                                         -->
+	<!-- ************************************************************************************* -->
+	<!-- ************************************************************************************* -->
+	<!-- START: Article XML definition                                                         -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_ARTICLE
+		Description : 	Article Information. The regulated item that is being imported, moved from state to state, or released to the environment.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="ArticleDataType">
+		<xsd:sequence>
+			<xsd:element name="ScientificName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CommonName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CultivarBreedingLine" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="500"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="BiologicalMaterial" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OriginDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PreventiveDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Article XML definition                                                           -->
+	<!-- ************************************************************************************* -->
+	<!-- ************************************************************************************* -->
+	<!-- START: Article Supplier XML definition                                                         -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_ARTICLE_SUPPLIER
+		Description : 	Article Supplier/Developer Information. If you are applying for a Release Permit, you must provide the names, addresses, and telephone numbers of the persons who developed and/or supplied the regulated article.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="ArticleSupplierDataType">
+		<xsd:sequence>
+			<xsd:element name="USAddressFlag" type="YesNoIndicatorDataType"/>
+			<xsd:element name="ArtSupTitle" type="TitleType" minOccurs="0"/>
+			<xsd:element name="ArtSupFirstName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupMiddleName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupLastName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupSuffix" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupOrganization" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupAddressLine1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupAddressLine2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupAddressLine3" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupAddressLine4" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupCity">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupCountyProvince" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupState" type="StateDataType" minOccurs="0"/>
+			<xsd:element name="ArtSupCountry" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupPostalCode">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupDayTelephone">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupDayTelephoneExtension" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupFaxTelephone" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ArtSupEmail" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Article Supplier XML definition                                                           -->
+	<!-- ************************************************************************************* -->
+	<!-- ************************************************************************************* -->
+	<!-- START: Phenotypic Designation XML definition                                          -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_PhenotypicDesignation 
+		Description : 	PhenotypicDesignation Information. A collection of transformed lines from a single given construct
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="PhenotypicDesignationDataType">
+		<xsd:sequence>
+			<xsd:element name="PhenotypicDesignationName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Lines" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Construct">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="64"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ModeofTransformation">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PhenotypeDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Genotype" type="GenotypeDataType" maxOccurs="unbounded"/>
+			<xsd:element name="Phenotypes" type="PhenotypeDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Phenotypic Designation XML definition                                            -->
+	<!-- ************************************************************************************* -->
+	<!-- ************************************************************************************* -->
+	<!-- START: Phenotype XML definition                                                       -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_PHENOTYPE
+		Description : 	The category of modification and quality/property of the regulated item.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="PhenotypeDataType">
+		<xsd:sequence>
+			<xsd:element name="PhenotypeCategory" type="PhenotypeCategory"/>
+			<xsd:element name="Phenotype">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="PhenotypeCategory">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AP"/>   <!-- AP - Agronomic Properties -->
+			<xsd:enumeration value="BR"/>   <!-- BR - Bacterial Resistance -->
+			<xsd:enumeration value="FR"/>   <!-- FR - Fungal Resistance -->
+			<xsd:enumeration value="HT"/>   <!-- HT - Herbicide Tolerance -->
+			<xsd:enumeration value="IR"/>   <!-- IR - Insect Resistance -->
+			<xsd:enumeration value="MG"/>   <!-- MG - Marker Gene -->
+			<xsd:enumeration value="NR"/>   <!-- NR - Nematode Resistance -->
+			<xsd:enumeration value="OO"/>   <!-- OO - Other -->
+			<xsd:enumeration value="PQ"/>   <!-- PQ - Product Quality -->
+			<xsd:enumeration value="VR"/>   <!-- VR - Virus Resistance -->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Phenotype XML definition                                                         -->
+	<!-- ************************************************************************************* -->
+	<!-- ************************************************************************************* -->
+	<!-- START: Genotype XML definition                                                        -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_GENOTYPE
+		Description : 	Genotype Information. The gene type (gene of interest, gene silencer, selectable marker, screenable marker) in association with a group of construct components.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="GenotypeDataType">
+		<xsd:sequence>
+			<xsd:element name="GenotypeType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ConstructComponent" type="ConstructComponentDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Genotype XML definition                                                          -->
+	<!-- ************************************************************************************* -->
+	<!-- ************************************************************************************* -->
+	<!-- START: Construct Component XML definition                                             -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_CONSTRUCT_COMPONENT
+		Description : 	Construct Component Information. An individual promoter, gene, terminator, etc. defined by its construct component type; construct component name or function, and donor.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="ConstructComponentDataType">
+		<xsd:sequence>
+			<xsd:element name="ConstructComponentType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="64"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ConstructComponentNameorFunction">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ConstructComponentDescription">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="4000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Donor">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ConstructComponentSortOrder">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Construct Component XML definition                                               -->
+	<!-- ************************************************************************************* -->
+	<!-- ************************************************************************************* -->
+	<!-- START: Location Contacts XML definition                                               -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_LOCATION_CONTACTS 
+		Description : 	The Contact Person(s) for a location, such as import point of origin, import destination, interstate movement point of origin, interstate movement destination, or release site.  Identifying contact persons(s) is optional.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="ContactPersonDataType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="TitleType" minOccurs="0"/>
+			<xsd:element name="FirstName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MiddleName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LastName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Comments" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="500"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PrimaryFlag" type="YesNoIndicatorDataType"/>
+			<xsd:element name="ContDetails" type="LocationContactDetailDataType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LocationContactDetailDataType">
+		<xsd:sequence>
+			<xsd:element name="AddressLine1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AddressLine2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AddressLine3" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AddressLine4" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CountyProvince" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="City" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TownshipIsland" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="State" type="StateDataType" minOccurs="0"/>
+			<xsd:element name="PostalCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Country" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Email1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Email2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DayTelephone">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DayTelephoneExtension" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FaxTelephone" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AlternateTelephone" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AlternateTelephoneExtension" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Location Contacts XML definition                                                 -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_IntroductionDestination
+		Description : 	The quantity, units, and plant parts being shipped between locations.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="IntroductionImportDataType">
+		<xsd:sequence>
+			<xsd:element name="ProposedStartDate">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProposedEndDate">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Quantity">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Units">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PlantPart">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AphisFlag" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="InspectionRefNum" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="250"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_IntroductionRelease 
+		Description : 	The quantity released to the environment of the regulated item.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="IntroductionReleaseDataType">
+		<xsd:sequence>
+			<xsd:element name="ProposedPlantingPeriodStartDate">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProposedPlantingPeriodEndDate">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumberofProposedPlantings">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalProposedQuantity">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PlantingUnits">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PlantingComments" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="4000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_LocationComponents
+		Description : 	All Components for Location.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="LocationComponentsDataType">
+		<xsd:sequence>
+			<xsd:element name="LocationName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine3" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine4" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationCountyProvince">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationCity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationPostalCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImpLocationComponentsDataType">
+		<xsd:sequence>
+			<xsd:element name="LocationName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationDescription" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="150"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine3" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationAddressLine4" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationCountyProvince" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationCity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LocationPostalCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- START: Design Protocol XML definition                                                         -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	BRS_DESIGN_PROTOCOL
+		Description : 	Design Protocol Information. A detailed description of the location and processes, procedures, and safeguards in preventing contamination, release, and dissemination in the production of the article.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="DesignProtocolDataType">
+		<xsd:sequence>
+			<xsd:element name="ProposedExperiment" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DestRelLocation" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DestRelPrevention" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DispositionMethod" type="DispositionMethodList" minOccurs="0"/>
+			<xsd:element name="FinalDisposition" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ************************************************************************************* -->
+	<!-- END: Design Protocol XML definition                                                           -->
+	<!-- ************************************************************************************* -->
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	Introduction_Types
+		Description: List of allowed values for element IntroductionType
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="IntroductionType">
+            <!-- BIM - Importation  -->
+            <!-- BIT - Interstate Movement  -->
+            <!-- BIR - Interstate Movement and Release  -->
+            <!-- BRL - Release  -->
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BIM"/>
+			<xsd:enumeration value="BIT"/>
+			<xsd:enumeration value="BIR"/>
+			<xsd:enumeration value="BRL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	Application_Category
+		Description: List of allowed values for element AppCatType
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="AppCatType">
+            <!-- BN - New   BN is the only valid AppCatType -->
+		<xsd:restriction base="xsd:string">  
+			<xsd:enumeration value="BN"/>
+			<xsd:enumeration value="BV"/>
+			<xsd:enumeration value="BR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	Permit_Article_Purpose
+		Description: List of allowed values for article purpose where null value is NOT allowed.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="ArticlePurposeType">
+            <!-- IP - Industrial Product -->
+            <!-- PP - Pharmaceutical Product -->
+            <!-- PM - Phytoremediation -->
+            <!-- TR - Traditional -->
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="IP"/>
+			<xsd:enumeration value="PP"/>
+			<xsd:enumeration value="PM"/>
+			<xsd:enumeration value="TR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	Title_Type
+		Description: List of allowed values for title where null value is allowed.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="TitleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Mr."/>
+			<xsd:enumeration value="Mrs."/>
+			<xsd:enumeration value="Ms."/>
+			<xsd:enumeration value="Dr."/>
+			<xsd:enumeration value=""/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	Disposition_Method
+		Description: List of allowed values for disposition method where null value is NOT allowed.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="DispositionMethodList">
+		<xsd:list itemType="DispositionMethodType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DispositionMethodType">
+     <!-- DD - Destruction/Devitalization -->
+     <!-- OT - Other -->
+     <!-- CF - Storage in Contained Facility -->
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DD"/>   
+			<xsd:enumeration value="OT"/>   
+			<xsd:enumeration value="CF"/>   
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	US_States_Not_Required
+		Description: List of allowed values for State where null value is allowed.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="StateDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AL"/>
+			<xsd:enumeration value="AK"/>
+			<xsd:enumeration value="AS"/>
+			<xsd:enumeration value="AZ"/>
+			<xsd:enumeration value="AR"/>
+			<xsd:enumeration value="CA"/>
+			<xsd:enumeration value="CO"/>
+			<xsd:enumeration value="CT"/>
+			<xsd:enumeration value="DE"/>
+			<xsd:enumeration value="DC"/>
+			<xsd:enumeration value="FM"/>
+			<xsd:enumeration value="FL"/>
+			<xsd:enumeration value="GA"/>
+			<xsd:enumeration value="GU"/>
+			<xsd:enumeration value="HI"/>
+			<xsd:enumeration value="ID"/>
+			<xsd:enumeration value="IL"/>
+			<xsd:enumeration value="IN"/>
+			<xsd:enumeration value="IA"/>
+			<xsd:enumeration value="KS"/>
+			<xsd:enumeration value="KY"/>
+			<xsd:enumeration value="LA"/>
+			<xsd:enumeration value="ME"/>
+			<xsd:enumeration value="MH"/>
+			<xsd:enumeration value="MD"/>
+			<xsd:enumeration value="MA"/>
+			<xsd:enumeration value="MI"/>
+			<xsd:enumeration value="MN"/>
+			<xsd:enumeration value="MS"/>
+			<xsd:enumeration value="MO"/>
+			<xsd:enumeration value="MT"/>
+			<xsd:enumeration value="NE"/>
+			<xsd:enumeration value="NV"/>
+			<xsd:enumeration value="NH"/>
+			<xsd:enumeration value="NJ"/>
+			<xsd:enumeration value="NM"/>
+			<xsd:enumeration value="NY"/>
+			<xsd:enumeration value="NC"/>
+			<xsd:enumeration value="ND"/>
+			<xsd:enumeration value="MP"/>
+			<xsd:enumeration value="OH"/>
+			<xsd:enumeration value="OK"/>
+			<xsd:enumeration value="OR"/>
+			<xsd:enumeration value="PW"/>
+			<xsd:enumeration value="PA"/>
+			<xsd:enumeration value="PR"/>
+			<xsd:enumeration value="RI"/>
+			<xsd:enumeration value="SC"/>
+			<xsd:enumeration value="SD"/>
+			<xsd:enumeration value="TN"/>
+			<xsd:enumeration value="TX"/>
+			<xsd:enumeration value="UT"/>
+			<xsd:enumeration value="VT"/>
+			<xsd:enumeration value="VI"/>
+			<xsd:enumeration value="VA"/>
+			<xsd:enumeration value="WA"/>
+			<xsd:enumeration value="WV"/>
+			<xsd:enumeration value="WI"/>
+			<xsd:enumeration value="WY"/>
+			<xsd:enumeration value=""/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : 	US_States_Required
+		Description: List of allowed values for State where null value is NOT allowed
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="RequiredStateDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AL"/>
+			<xsd:enumeration value="AK"/>
+			<xsd:enumeration value="AS"/>
+			<xsd:enumeration value="AZ"/>
+			<xsd:enumeration value="AR"/>
+			<xsd:enumeration value="CA"/>
+			<xsd:enumeration value="CO"/>
+			<xsd:enumeration value="CT"/>
+			<xsd:enumeration value="DE"/>
+			<xsd:enumeration value="DC"/>
+			<xsd:enumeration value="FM"/>
+			<xsd:enumeration value="FL"/>
+			<xsd:enumeration value="GA"/>
+			<xsd:enumeration value="GU"/>
+			<xsd:enumeration value="HI"/>
+			<xsd:enumeration value="ID"/>
+			<xsd:enumeration value="IL"/>
+			<xsd:enumeration value="IN"/>
+			<xsd:enumeration value="IA"/>
+			<xsd:enumeration value="KS"/>
+			<xsd:enumeration value="KY"/>
+			<xsd:enumeration value="LA"/>
+			<xsd:enumeration value="ME"/>
+			<xsd:enumeration value="MH"/>
+			<xsd:enumeration value="MD"/>
+			<xsd:enumeration value="MA"/>
+			<xsd:enumeration value="MI"/>
+			<xsd:enumeration value="MN"/>
+			<xsd:enumeration value="MS"/>
+			<xsd:enumeration value="MO"/>
+			<xsd:enumeration value="MT"/>
+			<xsd:enumeration value="NE"/>
+			<xsd:enumeration value="NV"/>
+			<xsd:enumeration value="NH"/>
+			<xsd:enumeration value="NJ"/>
+			<xsd:enumeration value="NM"/>
+			<xsd:enumeration value="NY"/>
+			<xsd:enumeration value="NC"/>
+			<xsd:enumeration value="ND"/>
+			<xsd:enumeration value="MP"/>
+			<xsd:enumeration value="OH"/>
+			<xsd:enumeration value="OK"/>
+			<xsd:enumeration value="OR"/>
+			<xsd:enumeration value="PW"/>
+			<xsd:enumeration value="PA"/>
+			<xsd:enumeration value="PR"/>
+			<xsd:enumeration value="RI"/>
+			<xsd:enumeration value="SC"/>
+			<xsd:enumeration value="SD"/>
+			<xsd:enumeration value="TN"/>
+			<xsd:enumeration value="TX"/>
+			<xsd:enumeration value="UT"/>
+			<xsd:enumeration value="VT"/>
+			<xsd:enumeration value="VI"/>
+			<xsd:enumeration value="VA"/>
+			<xsd:enumeration value="WA"/>
+			<xsd:enumeration value="WV"/>
+			<xsd:enumeration value="WI"/>
+			<xsd:enumeration value="WY"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="YesNoIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

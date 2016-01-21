@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Submission xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BRS_Permit_V2.0.xsd">
+	<Applicant>
+		<AppTitle/>
+		<AppFirstName>John</AppFirstName>
+		<AppMiddleName/>
+		<AppLastName>Smith</AppLastName>
+		<OrganizationName>XYZ Company</OrganizationName>
+		<OrganizationUniqueID>01</OrganizationUniqueID>
+		<Position/>
+		<AppContDetails>
+			<AppAddressLine1>800 Main Street</AppAddressLine1>
+			<AppAddressLine2/>
+			<AppAddressLine3/>
+			<AppAddressLine4/>
+			<AppCountyProvince/>
+			<AppCity>Fairfax</AppCity>
+			<AppTownshipIsland/>
+			<AppState>VA</AppState>
+			<AppPostalCode>99999</AppPostalCode>
+			<AppEmail1>dummy.user@dummy.com</AppEmail1>
+			<AppEmail2/>
+			<AppDayTelephone>703/555-1212</AppDayTelephone>
+			<AppDayTelephoneExtension/>
+			<AppFaxTelephone>703/555-2222</AppFaxTelephone>
+			<AppAlternateTelephone/>
+			<AppAlternateTelephoneExtension/>
+		</AppContDetails>
+	</Applicant>
+	<Application>
+		<IntroductionType>BRL</IntroductionType>
+		<AppCatType>BN</AppCatType>
+		<AmendmentJustification/>
+		<PrevPermitNum/>
+		<ApplicationCBIFlag>N</ApplicationCBIFlag>
+		<ArticlePurpose>IP</ArticlePurpose>
+		<CourtesyPermitFlag>N</CourtesyPermitFlag>
+		<CourtesyJustification/>
+		<MeansOfMovement>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque dapibus sagittis risus. Ut quis erat vitae risus imperdiet interdum. Sed nibh odio, condimentum a, fringilla ut, condimentum quis, nunc. Nullam at eros vel orci egestas auctor. Curabitur in ante. Sed commodo. Sed suscipit tortor vel enim. Sed gravida, arcu eu cursus pulvinar, dui purus adipiscing ipsum, non malesuada ligula quam in tortor. Suspendisse potenti.</MeansOfMovement>
+		<AdditionalInformation>Aliquam turpis elit, fermentum ut, tincidunt sit amet, congue id, neque. Nulla porttitor convallis felis. Mauris quam turpis, laoreet sed, bibendum ac, molestie vitae, arcu. In neque.</AdditionalInformation>
+		<VarianceFlag>Y</VarianceFlag>
+		<VarianceNumber>VN 123456789</VarianceNumber>
+		<VarianceDescription>Praesent feugiat blandit ligula. Vestibulum luctus tellus sed nibh. In mauris diam, pharetra eu, tempus eu, tincidunt vel, lectus.</VarianceDescription>
+		<Article>
+			<ScientificName>Corn</ScientificName>
+			<CommonName>Zea mays</CommonName>
+			<CultivarBreedingLine>Elite lines derived from Zea mays.</CultivarBreedingLine>
+			<BiologicalMaterial>Fusce porta malesuada ante. Nunc lacinia facilisis ligula.</BiologicalMaterial>
+			<OriginDescription>Quisque vestibulum, leo sit amet euismod ornare, mi dui ultricies mauris, euismod vulputate ligula neque dictum odio. Nam facilisis mauris et odio. Pellentesque molestie dui ac massa.</OriginDescription>
+			<PreventiveDescription>Nulla pellentesque, nisi at facilisis ullamcorper, arcu nisl pellentesque leo, a pharetra libero ligula laoreet nulla. Nam vehicula, dolor eget euismod pellentesque, purus elit bibendum erat, vitae luctus nibh pede fringilla ante.</PreventiveDescription>
+		</Article>
+		<ArticleSupplier>
+			<USAddressFlag>Y</USAddressFlag>
+			<ArtSupTitle/>
+			<ArtSupFirstName>Robert</ArtSupFirstName>
+			<ArtSupMiddleName/>
+			<ArtSupLastName>Provick</ArtSupLastName>
+			<ArtSupSuffix/>
+			<ArtSupOrganization>ABC Corp</ArtSupOrganization>
+			<ArtSupAddressLine1>1 Canal Street</ArtSupAddressLine1>
+			<ArtSupAddressLine2/>
+			<ArtSupAddressLine3/>
+			<ArtSupAddressLine4/>
+			<ArtSupCity>Fair Falls</ArtSupCity>
+			<ArtSupCountyProvince/>
+			<ArtSupState>VA</ArtSupState>
+			<ArtSupCountry/>
+			<ArtSupPostalCode>20001</ArtSupPostalCode>
+			<ArtSupDayTelephone>703/555-1234</ArtSupDayTelephone>
+			<ArtSupDayTelephoneExtension/>
+			<ArtSupFaxTelephone>703/555-9999</ArtSupFaxTelephone>
+			<ArtSupEmail>supplier@article_supplier.com</ArtSupEmail>
+		</ArticleSupplier>
+		<ArticleSupplier>
+			<USAddressFlag>N</USAddressFlag>
+			<ArtSupTitle/>
+			<ArtSupFirstName>Peter</ArtSupFirstName>
+			<ArtSupMiddleName/>
+			<ArtSupLastName>Phillips</ArtSupLastName>
+			<ArtSupSuffix>Sir</ArtSupSuffix>
+			<ArtSupOrganization>Biotech Trading</ArtSupOrganization>
+			<ArtSupAddressLine1>12 North Street</ArtSupAddressLine1>
+			<ArtSupAddressLine2/>
+			<ArtSupAddressLine3/>
+			<ArtSupAddressLine4/>
+			<ArtSupCity>Richmond</ArtSupCity>
+			<ArtSupCountyProvince>London</ArtSupCountyProvince>
+			<ArtSupState/>
+			<ArtSupCountry>United Kingdom</ArtSupCountry>
+			<ArtSupPostalCode>LN1234</ArtSupPostalCode>
+			<ArtSupDayTelephone>+44 12345678</ArtSupDayTelephone>
+			<ArtSupDayTelephoneExtension/>
+			<ArtSupFaxTelephone>+44 87654321</ArtSupFaxTelephone>
+			<ArtSupEmail>supplier@article_supplier.uk</ArtSupEmail>
+		</ArticleSupplier>
+		<PhenotypicDesignation>
+			<PhenotypicDesignationName>PV-ZMCTB3403</PhenotypicDesignationName>
+			<Lines>ZM_M14066; ZM_M21538; (ZM_M14066, ZM_M21538)</Lines>
+			<Construct>PV-ZMCTB3403</Construct>
+			<ModeofTransformation>Disarmed Agrobacterium tumefaciens</ModeofTransformation>
+			<PhenotypeDescription>Nulla iaculis libero id felis.</PhenotypeDescription>
+			<Genotype>
+				<GenotypeType>Gene of Interest</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-4</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>Oryza sativa</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>PHX0547</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Genotype>
+				<GenotypeType>Selectable Marker</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-35S</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-NPT11</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3+1</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Terminator</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Genotype>
+				<GenotypeType>Gene of Interest</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-2</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>PHX0143</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Terminator</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Genotype>
+				<GenotypeType>Selectable Marker</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-35S</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-NPT11</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3+1</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Terminator</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Phenotypes>
+				<PhenotypeCategory>PQ</PhenotypeCategory>
+				<Phenotype>Protein Levels altered</Phenotype>
+			</Phenotypes>
+		</PhenotypicDesignation>
+		<PhenotypicDesignation>
+			<PhenotypicDesignationName>PV-ZMCTB3404</PhenotypicDesignationName>
+			<Lines>ZM_M14066; ZM_M16382; (ZM_M14066, ZM_M16382)</Lines>
+			<Construct>PV-ZMCTB3404</Construct>
+			<ModeofTransformation>Disarmed Agrobacterium tumefaciens</ModeofTransformation>
+			<PhenotypeDescription>Nulla iaculis libero id felis.</PhenotypeDescription>
+			<Genotype>
+				<GenotypeType>Gene of Interest</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-4</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>PHX0547</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Terminator</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Genotype>
+				<GenotypeType>Selectable Marker</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-35S</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-NPT11</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3+1</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Terminator</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Genotype>
+				<GenotypeType>Gene of Interest</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-2</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>PHX0143</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Terminator</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Genotype>
+				<GenotypeType>Selectable Marker</GenotypeType>
+				<ConstructComponent>
+					<ConstructComponentType>Promoter</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-35S</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Promoter</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>1</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Gene</ConstructComponentType>
+					<ConstructComponentNameorFunction>P-NPT11</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Gene</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>2</ConstructComponentSortOrder>
+				</ConstructComponent>
+				<ConstructComponent>
+					<ConstructComponentType>Terminator</ConstructComponentType>
+					<ConstructComponentNameorFunction>PPI3+1</ConstructComponentNameorFunction>
+					<ConstructComponentDescription>The Terminator</ConstructComponentDescription>
+					<Donor>String</Donor>
+					<ConstructComponentSortOrder>3</ConstructComponentSortOrder>
+				</ConstructComponent>
+			</Genotype>
+			<Phenotypes>
+				<PhenotypeCategory>PQ</PhenotypeCategory>
+				<Phenotype>Protein Levels altered</Phenotype>
+			</Phenotypes>
+		</PhenotypicDesignation>
+		<InterstateDetails>
+			<InterstateMovementOriginationPoint>
+				<LocationName>Calgene, LLC.</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Calgene Street</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Yolo</LocationCountyProvince>
+				<LocationCity>Davis</LocationCity>
+				<LocationPostalCode>98818</LocationPostalCode>
+				<LocationTownshipIsland/>
+				<LocationState>CA</LocationState>
+				<Contact>
+					<Title/>
+					<FirstName>Sharon</FirstName>
+					<MiddleName/>
+					<LastName>Jones</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1/>
+						<AddressLine2/>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City/>
+						<TownshipIsland/>
+						<State/>
+						<PostalCode/>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>630/987-9856</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementOriginationPoint>
+			<InterstateMovementOriginationPoint>
+				<LocationName>Monsanto Mystic Research Center</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Mystic Drive</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>New London</LocationCountyProvince>
+				<LocationCity>Mystic</LocationCity>
+				<LocationPostalCode>09451</LocationPostalCode>
+				<LocationTownshipIsland/>
+				<LocationState>CT</LocationState>
+				<Contact>
+					<Title/>
+					<FirstName>Ann</FirstName>
+					<MiddleName/>
+					<LastName>Simpson</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1/>
+						<AddressLine2/>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City/>
+						<TownshipIsland/>
+						<State/>
+						<PostalCode/>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>(360) 453-8976</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementOriginationPoint>
+			<InterstateMovementOriginationPoint>
+				<LocationName>Jerseyville</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Jersey Street</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Jersey</LocationCountyProvince>
+				<LocationCity>Jerseyville</LocationCity>
+				<LocationPostalCode>86958</LocationPostalCode>
+				<LocationTownshipIsland/>
+				<LocationState>IL</LocationState>
+				<Contact>
+					<Title/>
+					<FirstName>Sally</FirstName>
+					<MiddleName/>
+					<LastName>Edwards</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1>Jerseyville</AddressLine1>
+						<AddressLine2>JerseyStreet</AddressLine2>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City>Jerseyville</City>
+						<TownshipIsland/>
+						<State>IL</State>
+						<PostalCode>67512</PostalCode>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>636/897-6059</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementOriginationPoint>
+			<InterstateMovementOriginationPoint>
+				<LocationName>Discovery Farm</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Hawaii Road</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Maui</LocationCountyProvince>
+				<LocationCity>Maalaea</LocationCity>
+				<LocationPostalCode>96098</LocationPostalCode>
+				<LocationTownshipIsland>Maui</LocationTownshipIsland>
+				<LocationState>HI</LocationState>
+				<Contact>
+					<Title/>
+					<FirstName>Johnny</FirstName>
+					<MiddleName/>
+					<LastName>Smith</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1/>
+						<AddressLine2/>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City/>
+						<TownshipIsland/>
+						<State/>
+						<PostalCode/>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>901/876-6788</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementOriginationPoint>
+			<InterstateMovementDestination>
+				<LocationName>Calgene, LLC.</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Calgene Street</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Yolo</LocationCountyProvince>
+				<LocationCity>Davis</LocationCity>
+				<LocationPostalCode>98818</LocationPostalCode>
+				<LocationTownshipIsland/>
+				<LocationState>CA</LocationState>
+				<IntroductionMovement>
+					<ProposedStartDate>2004-10-09</ProposedStartDate>
+					<ProposedEndDate>2005-10-09</ProposedEndDate>
+					<Quantity>1500</Quantity>
+					<Units>pounds</Units>
+					<PlantPart>corn seed, whole plants, seedlings,
+immature embryos, pollen, cobs, roots and leaves to/from each site</PlantPart>
+					<AphisFlag/>
+					<InspectionRefNum/>
+				</IntroductionMovement>
+				<Contact>
+					<Title/>
+					<FirstName>Sharon</FirstName>
+					<MiddleName/>
+					<LastName>Jones</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1/>
+						<AddressLine2/>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City/>
+						<TownshipIsland/>
+						<State/>
+						<PostalCode/>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>630/987-9856</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementDestination>
+			<InterstateMovementDestination>
+				<LocationName>Monsanto Mystic Research Center</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Mystic Drive</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>New London</LocationCountyProvince>
+				<LocationCity>Mystic</LocationCity>
+				<LocationPostalCode>09451</LocationPostalCode>
+				<LocationTownshipIsland/>
+				<LocationState>CT</LocationState>
+				<IntroductionMovement>
+					<ProposedStartDate>2004-10-09</ProposedStartDate>
+					<ProposedEndDate>2005-10-09</ProposedEndDate>
+					<Quantity>1500</Quantity>
+					<Units>pounds</Units>
+					<PlantPart>corn seed, whole plants, seedlings,
+immature embryos, pollen, cobs, roots and leaves to/from each site</PlantPart>
+					<AphisFlag/>
+					<InspectionRefNum/>
+				</IntroductionMovement>
+				<Contact>
+					<Title/>
+					<FirstName>Ann</FirstName>
+					<MiddleName/>
+					<LastName>Simpson</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1/>
+						<AddressLine2/>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City/>
+						<TownshipIsland/>
+						<State/>
+						<PostalCode/>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>(360) 453-8976</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementDestination>
+			<InterstateMovementDestination>
+				<LocationName>Jerseyville</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Jersey Street</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Jersey</LocationCountyProvince>
+				<LocationCity>Jerseyville</LocationCity>
+				<LocationPostalCode>86958</LocationPostalCode>
+				<LocationTownshipIsland/>
+				<LocationState>IL</LocationState>
+				<IntroductionMovement>
+					<ProposedStartDate>2004-10-09</ProposedStartDate>
+					<ProposedEndDate>2005-10-09</ProposedEndDate>
+					<Quantity>1500</Quantity>
+					<Units>pounds</Units>
+					<PlantPart>corn seed, whole plants, seedlings,
+immature embryos, pollen, cobs, roots and leaves to/from each site</PlantPart>
+				</IntroductionMovement>
+				<Contact>
+					<Title/>
+					<FirstName>Sally</FirstName>
+					<MiddleName/>
+					<LastName>Edwards</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1>Jerseyville</AddressLine1>
+						<AddressLine2>JerseyStreet</AddressLine2>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City>Jerseyville</City>
+						<TownshipIsland/>
+						<State>IL</State>
+						<PostalCode>67512</PostalCode>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>636/897-6059</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementDestination>
+			<InterstateMovementDestination>
+				<LocationName>Discovery Farm</LocationName>
+				<LocationDescription/>
+				<LocationAddressLine1>Hawaii Road</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Maui</LocationCountyProvince>
+				<LocationCity>Maalaea</LocationCity>
+				<LocationPostalCode>96098</LocationPostalCode>
+				<LocationTownshipIsland>Maui</LocationTownshipIsland>
+				<LocationState>HI</LocationState>
+				<IntroductionMovement>
+					<ProposedStartDate>2004-10-09</ProposedStartDate>
+					<ProposedEndDate>2005-10-09</ProposedEndDate>
+					<Quantity>1500</Quantity>
+					<Units>pounds</Units>
+					<PlantPart>corn seed, whole plants, seedlings,
+immature embryos, pollen, cobs, roots and leaves to/from each site</PlantPart>
+				</IntroductionMovement>
+				<Contact>
+					<Title/>
+					<FirstName>Johnny</FirstName>
+					<MiddleName/>
+					<LastName>Smith</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1/>
+						<AddressLine2/>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City/>
+						<TownshipIsland/>
+						<State/>
+						<PostalCode/>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>901/876-6788</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</InterstateMovementDestination>
+		</InterstateDetails>
+		<ReleaseDetails>
+			<ReleaseLocation>
+				<LocationName>Discovery Farm</LocationName>
+				<LocationDescription>2147314139</LocationDescription>
+				<LocationAddressLine1>Hawaii Road</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Maui</LocationCountyProvince>
+				<LocationCity>Maalaea</LocationCity>
+				<LocationPostalCode>96098</LocationPostalCode>
+				<LocationTownshipIsland>Maui</LocationTownshipIsland>
+				<LocationState>HI</LocationState>
+				<LocationUniqueID>Location1</LocationUniqueID>
+				<GPSCoordinates CBI="false">
+					<GPSLatitude>20.631565</GPSLatitude>
+					<GPSLongitude>-156.498231</GPSLongitude>
+				</GPSCoordinates>
+				<ReleaseSiteHistory>ReleaseSiteHistory 1</ReleaseSiteHistory>
+				<CriticalHabitatFlag>Y</CriticalHabitatFlag>
+				<CriticalHabitatSpecies>sfsdf sdfsdf sjh hsd jf o8usydjf hsjdhfiu ysjhs uyfwj sdhfushgsdg.</CriticalHabitatSpecies>
+				<CriticalHabitatEffectAnalysis>sfsdf sdfsdf</CriticalHabitatEffectAnalysis>
+				<IntroductionRelease>
+					<ProposedPlantingPeriodStartDate>2004-10-09</ProposedPlantingPeriodStartDate>
+					<ProposedPlantingPeriodEndDate>2005-10-09</ProposedPlantingPeriodEndDate>
+					<NumberofProposedPlantings>String</NumberofProposedPlantings>
+					<TotalProposedQuantity>15</TotalProposedQuantity>
+					<PlantingUnits>acres</PlantingUnits>
+					<PlantingComments/>
+				</IntroductionRelease>
+				<Contact>
+					<Title/>
+					<FirstName>Johnny</FirstName>
+					<MiddleName/>
+					<LastName>Smith</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1>Monsanto Company </AddressLine1>
+						<AddressLine2>P.O. Box 9078</AddressLine2>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City>Kihei</City>
+						<TownshipIsland>Maui</TownshipIsland>
+						<State>HI</State>
+						<PostalCode>96703</PostalCode>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>901/876-6788</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</ReleaseLocation>
+			<ReleaseLocation>
+				<LocationName>Jerseyville</LocationName>
+				<LocationDescription>2147316921</LocationDescription>
+				<LocationAddressLine1>Jersey Street</LocationAddressLine1>
+				<LocationAddressLine2/>
+				<LocationAddressLine3/>
+				<LocationAddressLine4/>
+				<LocationCountyProvince>Jersey</LocationCountyProvince>
+				<LocationCity>Jerseyville</LocationCity>
+				<LocationPostalCode>86958</LocationPostalCode>
+				<LocationTownshipIsland/>
+				<LocationState>IL</LocationState>
+				<LocationUniqueID>Location2</LocationUniqueID>
+				<GPSCoordinates CBI="false">
+					<GPSLatitude>39.111768</GPSLatitude>
+					<GPSLongitude>-90.356555</GPSLongitude>
+				</GPSCoordinates>
+				<ReleaseSiteHistory>ReleaseSiteHistory 1</ReleaseSiteHistory>
+				<CriticalHabitatFlag>N</CriticalHabitatFlag>
+				<CriticalHabitatSpecies/>
+				<CriticalHabitatEffectAnalysis/>
+				<IntroductionRelease>
+					<ProposedPlantingPeriodStartDate>2004-10-09</ProposedPlantingPeriodStartDate>
+					<ProposedPlantingPeriodEndDate>2005-10-09</ProposedPlantingPeriodEndDate>
+					<NumberofProposedPlantings>String</NumberofProposedPlantings>
+					<TotalProposedQuantity>15</TotalProposedQuantity>
+					<PlantingUnits>acres</PlantingUnits>
+					<PlantingComments/>
+				</IntroductionRelease>
+				<Contact>
+					<Title/>
+					<FirstName>Sally</FirstName>
+					<MiddleName/>
+					<LastName>Edwards</LastName>
+					<Comments/>
+					<PrimaryFlag>Y</PrimaryFlag>
+					<ContDetails>
+						<AddressLine1>Jerseyville</AddressLine1>
+						<AddressLine2>JerseyStreet</AddressLine2>
+						<AddressLine3/>
+						<AddressLine4/>
+						<CountyProvince/>
+						<City>Jerseyville</City>
+						<TownshipIsland/>
+						<State>IL</State>
+						<PostalCode>67512</PostalCode>
+						<Country/>
+						<Email1/>
+						<Email2/>
+						<DayTelephone>636/897-6059</DayTelephone>
+						<DayTelephoneExtension/>
+						<FaxTelephone/>
+						<AlternateTelephone/>
+						<AlternateTelephoneExtension/>
+					</ContDetails>
+				</Contact>
+			</ReleaseLocation>
+		</ReleaseDetails>
+		<DesignProtocolDetails>
+			<ProposedExperiment>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse ultrices volutpat lacus. Nullam ultricies hendrerit dui. Vestibulum rutrum leo sed.</ProposedExperiment>
+			<DestRelLocation>Maecenas nec nisl vel orci tincidunt mattis. Nullam porttitor, nisi et condimentum eleifend, velit risus sagittis.</DestRelLocation>
+			<DestRelPrevention>Nunc quis lacus. Donec dictum magna vitae arcu. Sed iaculis.</DestRelPrevention>
+			<DispositionMethod>CF</DispositionMethod>
+			<FinalDisposition>Vestibulum fringilla nibh id ante. Aliquam erat volutpat. Aliquam semper elementum massa. Vestibulum arcu nibh, bibendum eu, aliquam sit amet, volutpat pretium, neque. Integer nulla. Ut sed lectus in sapien.</FinalDisposition>
+		</DesignProtocolDetails>
+	</Application>
+</Submission>

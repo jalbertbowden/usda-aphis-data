@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://aphis.usda.gov/epermits/XML_SCHEMA/VolunteerMonitoringReport" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://aphis.usda.gov/epermits/XML_SCHEMA/VolunteerMonitoringReport" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="VolunteerMonitoringReport">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ApplicationId">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Location" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="LocationUniqueId" type="UniqueIdType"/>
+							<xs:choice maxOccurs="unbounded" minOccurs="1">
+								<xs:element name="MonitoringPeriod" type="MonitoringPeriodDataType" />
+								<xs:element name="NoMonitoring" type="NoMonitoringDataType" />
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="isFinal" type="xs:boolean"/>
+		</xs:complexType>
+		<xs:key name="UniqueLocationUniqueId">
+			<xs:selector xpath=".//Location"/>
+			<xs:field xpath="LocationUniqueId"/>
+		</xs:key>
+	</xs:element>
+	<xs:simpleType name="UniqueIdType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="52"/>
+			<xs:pattern value="[\w\-_]{1,50}|\[[\w\-_]{1,50}\]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CBINumber">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="52"/>
+			<xs:pattern value="[\d\.]{1,50}|\[[\d\.]{1,50}\]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="String64">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Text4000">
+		<xs:restriction base="Text">
+			<xs:maxLength value="4000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MonitoringPeriodDataType">
+		<xs:sequence>
+			<xs:element name="Start" type="xs:date"/>
+			<xs:element name="End" type="xs:date"/>
+			<xs:element name="ObservationDetails">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ObservationDetail" type="ObservationDetailDataType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Comments" type="Text4000" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NoMonitoringDataType">
+		<xs:sequence>
+			<xs:element name="Date" type="xs:date"/>
+			<xs:element name="Comment" type="Text4000"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ObservationDetailDataType">
+		<xs:sequence>
+			<xs:element name="Date" type="xs:date"/>
+			<xs:element name="Volunteers" type="CBINumber"/>
+			<xs:element name="VolunteerUnit">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="per field"/>
+						<xs:enumeration value="per 1 sq. ft."/>
+						<xs:enumeration value="per 10 sq. ft."/>
+						<xs:enumeration value="per 100 sq. ft."/>
+						<xs:enumeration value="per 1000 sq. ft."/>
+						<xs:enumeration value="per acre"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ActionsTaken" type="Text4000"/>
+			<xs:element name="Comments" type="Text4000" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

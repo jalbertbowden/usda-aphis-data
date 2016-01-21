@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by GT (QinetiQ - NA) -->
+<xs:schema xmlns="http://aphis.usda.gov/epermits/XML_SCHEMA/FieldTestDataReport" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://aphis.usda.gov/epermits/XML_SCHEMA/FieldTestDataReport" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xs:element name="FieldTestDataReport">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ApplicationId">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="50"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="FieldTestData" type="FieldTestDataType" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="isFinal" type="xs:boolean"/>
+        </xs:complexType>
+        <xs:key name="UniqueLocationUniqueId">
+            <xs:selector xpath=".//FieldTestData"/>
+            <xs:field xpath="LocationUniqueId"/>
+        </xs:key>
+    </xs:element>
+    <xs:simpleType name="UniqueIdType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="52"/>
+            <xs:pattern value="[\w\-_]{1,50}|\[[\w\-_]{1,50}\]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Text">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="String50">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Text4000">
+        <xs:restriction base="Text">
+            <xs:maxLength value="4000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CBINumber">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="52"/>
+            <xs:pattern value="[\d\.]{1,50}|\[[\d\.]{1,50}\]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="FieldTestDataType">
+        <xs:sequence>
+            <xs:element name="LocationUniqueId" type="UniqueIdType"/>
+            <xs:sequence>
+                <xs:element name="Harvested" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="HarvestDate" type="xs:date"/>
+                            <xs:element name="InFieldTermination" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="TerminationDate" type="xs:date"/>
+                                        <xs:element name="Description" type="Text4000" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="OffFieldTermination" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Stored" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Stored or Contained</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Quantity" type="CBINumber"/>
+                                                    <xs:element name="Units">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="pounds"/>
+                                                                <xs:enumeration value="acres"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Description" type="Text4000" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="OffFieldDestruction" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="DestructionDate" type="xs:date"/>
+                                                    <xs:element name="Description" type="Text4000" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DestroyedBeforeHarvest" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DestructionDate" type="xs:date"/>
+                            <xs:element name="Description" type="Text4000" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="StillGrowing" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="StillGrowingQuantity" type="String50"/>
+                            <xs:element name="StillGrowingDescription" type="Text4000" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Explanation" type="Text4000" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Only use this one when not using any of the other three options.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+            <xs:element name="DispositionMethods" type="Text4000"/><!--Disposition Methods is the same as "Reported accidental/unauthorized releases, substantially different characteristics or unusual occurrences"-->
+            <xs:element name="UnintendedEffects" type="Text4000"/><!--Unintended Effects is the same as "Deleterious Effects"-->
+            <xs:element name="UnusualOccurrences" type="Text4000"/><!--Unusual Occurrences is the same as "Methods of Observation and Data"-->
+            <xs:element name="CropObservations" type="Text4000"/><!--Crop Observations is the same as "Other Crop Observations"-->
+            <xs:element name="Comments" type="Text4000" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

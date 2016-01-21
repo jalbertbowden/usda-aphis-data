@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by GT (QinetiQ - NA) -->
+<xs:schema xmlns="http://aphis.usda.gov/epermits/XML_SCHEMA/PlantingReport" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://aphis.usda.gov/epermits/XML_SCHEMA/PlantingReport" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="PlantingReport">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ApplicationId">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="50"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Location" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="LocationUniqueId" type="UniqueIdType"/>
+							<xs:choice>
+								<xs:element name="Planting" type="PlantingDataType" maxOccurs="unbounded"/>
+								<xs:element name="NoPlanting">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="UniqueId" type="UniqueIdType"/>
+											<xs:element name="Explanation" type="Text4000"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="UniquePlantingUniqueId">
+			<xs:selector xpath=".//Planting | .//NoPlanting"/>
+			<xs:field xpath="UniqueId"/>
+		</xs:unique>
+		<xs:unique name="UniqueLocationUniqueId">
+			<xs:selector xpath=".//Location"/>
+			<xs:field xpath="LocationUniqueId"/>
+		</xs:unique>
+	</xs:element>
+	<xs:simpleType name="UniqueIdType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="52"/>
+			<xs:pattern value="[\w\-_]{1,50}|\[[\w\-_]{1,50}\]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CBINumber">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="52"/>
+			<xs:pattern value="[\d\.]{1,50}|\[[\d\.]{1,50}\]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="String64">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Text4000">
+		<xs:restriction base="Text">
+			<xs:maxLength value="4000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="GPSCoordinateType">
+		<xs:sequence>
+			<xs:element name="Latitude">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minInclusive value="-90.0"/>
+						<xs:maxInclusive value="90.0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Longitude">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minInclusive value="-180"/>
+						<xs:maxInclusive value="180"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CBI" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ConstructType">
+		<xs:sequence>
+			<xs:element name="Construct" type="String64"/>
+			<xs:element name="Lines" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="Text">
+						<xs:maxLength value="8000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlantingDataType">
+		<xs:sequence>
+			<xs:element name="UniqueId" type="UniqueIdType"/>
+			<xs:element name="StartDate" type="xs:date"/>
+			<xs:element name="HarvestDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="Quantity" type="CBINumber"/>
+			<xs:element name="Comments" type="Text4000" minOccurs="0"/>
+			<xs:element name="Coordinates">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GPSCoordinate" type="GPSCoordinateType" maxOccurs="6"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PhenotypicDesignations">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PhenotypicDesignation" type="ConstructType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
