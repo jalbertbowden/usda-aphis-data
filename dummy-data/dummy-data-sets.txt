@@ -1,0 +1,14 @@
+
+Cust_Request is first dataset
+Second tab gives you Insp_Request
+
+
+Click on details icon
+	page reloads
+	now you have png preview
+	appending "XXX-" beginnig with "001" just to keep track
+	InspInv_Request dataset is also now available, directly under the pdf preview image but after the tabular dataset
+
+	Speaking of the tabular dataset....InspInv_Request's data and the tabular data in the html document !=...
+
+
